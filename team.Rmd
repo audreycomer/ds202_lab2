@@ -24,7 +24,30 @@ head(t)
 barplot(t)
 ```
 
-##3. How do ratings compare across different company locations? Focus on the three locations with the most ratings. (Hint: They are U.S.A., France, and Canada, but find them out using codes.)
+##3. How do ratings compare across different company locations? Focus on the three locations with the most ratings.
+###(Hint: They are U.S.A., France, and Canada, but find them out using codes.)
+
+```{r}
+countries <- choco$Company.Location #creates vector of countries
+table(countries) #creates table with all countries and their rating frequency
+sort(table(countries), decreasing = T) #sorts table by frequency
+c2<-sort(table(countries), decreasing = T) #creates new variable to make calling headings simpler
+head(c2,3) #calls top three countries and # of ratings
+barplot(head(c2,3), ylab='Number of Ratings', ylim=c(0,800), width=1, col=c('blue', 'yellow','red'))
+```
+
+#Histograms of rating distribution in each of the top three countries
+```{r}
+usa <- choco[choco$Company.Location == "U.S.A.",]
+fr <- choco[choco$Company.Location == "France",]
+can <- choco[choco$Company.Location == "Canada",]
+hist(usa$Rating, breaks=seq(1,5,by=0.25), ylim=c(0,200), col='blue', xlab='Rating', main='Ratings of American chocolate')
+hist(fr$Rating, breaks=seq(1,5,by=0.25), ylim=c(0,40), col='yellow', xlab='Rating', main='Ratings of French chocolate')
+hist(can$Rating, breaks=seq(1,5,by=0.25), ylim=c(0,30), col='red', xlab='Rating', main='Ratings of Canadian chocolate')
+?hist
+```
+
+
 
 ##4. Brainstorm and write down an interesting question that can be answer from the dataset. The question should not duplicate the questions above.
 
