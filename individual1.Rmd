@@ -1,0 +1,35 @@
+---
+title: "lab2"
+author: "Audrey Comer"
+date: "2/5/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+choco <- read.csv("https://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
+head(choco)
+```
+##How are ratings distributed? Draw a histogram of ratings and describe it. Don't forget to mention outliers, if there are any.
+```{r}
+library(ggplot2)
+mean(choco$Rating)
+hist(choco$Rating,col="brown",xlab="Rating", ylim=c(0,800), main="Histogram of Chocolate Ratings")
+hist(choco$Rating,breaks=seq(0,5,by=.25),col="brown",xlab="Rating", main="Histogram of Chocolate Ratings")
+```
+
+Outliers are the ratings of 5 and 2 and below. The majority of the ratings are between 2.5 and 4. The mode is 3.5. The average (not found in the histogram) is 3.19.
+```{r}
+boxplot(choco$Rating)
+```
+
+
+##Do ratings depend on the cacao percentage of a chocolate bar?
+```{r}
+plot(choco$Cocoa.Pct,choco$Rating,xlab="Cacao Percent", ylab="Rating", main="Scatterplot of Rating by Cacao Percent")
+```
+
+There appears to be no correlation between cacao percentage and rating.
