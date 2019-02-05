@@ -5,13 +5,24 @@ date: "2/5/2019"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r}
+choco <- read.csv("https://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
 ```
 
 ##1. What is the overall number of chocolate bars rated?
+```{r}
+nrow(choco)
+```
 
 ##2. How does the number of ratings depend on the year? Draw a bar chart of the number of reports.
+
+Based on the below barchart, the number of ratings increased with year until 2016.
+
+```{r}
+t <- table(choco$Review.Date)
+head(t)
+barplot(t)
+```
 
 ##3. How do ratings compare across different company locations? Focus on the three locations with the most ratings. (Hint: They are U.S.A., France, and Canada, but find them out using codes.)
 
