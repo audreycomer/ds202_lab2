@@ -1,0 +1,26 @@
+---
+title: "Individual2"
+author: "Allegra Frickel"
+date: "2/5/2019"
+output: html_document
+---
+
+```{r}
+choco <- read.csv("https://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
+```
+
+**Question Set (Individual)**
+
+```{r}
+#1
+hist(choco$Rating, ylim = c(0,700))
+```
+
+This histogram displays that the ratings of chocolate are typically between 2.5 and 3.75. There are several outliers with ratings of 1-2 or 5.
+
+```{r}
+#2
+plot(choco$Cocoa.Pct, choco$Rating)
+```
+
+Based on this scatterplot, there is little to no linear pattern. In other words, the data points (or individual chocolate ratings) are randomly dispersed, representing a low correlation.
