@@ -33,7 +33,8 @@ table(countries) #creates table with all countries and their rating frequency
 sort(table(countries), decreasing = T) #sorts table by frequency
 c2<-sort(table(countries), decreasing = T) #creates new variable to make calling headings simpler
 head(c2,3) #calls top three countries and # of ratings
-barplot(head(c2,3), ylab='Number of Ratings', ylim=c(0,800), width=1, col=c('blue', 'yellow','red'))
+barplot(head(c2,3), ylab='Number of Ratings', main='Total Number of Ratings for Countries with the Most Ratings', ylim=c(0,800), width=1, col=c('blue', 'yellow','red'))
+?barplot
 ```
 
 #Histograms of rating distribution in each of the top three countries
