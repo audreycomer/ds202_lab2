@@ -51,5 +51,13 @@ hist(can$Rating, breaks=seq(1,5,by=0.25), ylim=c(0,30), col='red', xlab='Rating'
 
 
 ##4. Brainstorm and write down an interesting question that can be answer from the dataset. The question should not duplicate the questions above.
+What countries produce the darkest chocolate out of this data set?
 
 ##5. Answer the question from the dataset.
+```{r}
+dark80<-choco[choco$Cocoa.Pct>80,]
+names(dark80) <- dark80$Company.Location #this is wrong, I also tried choco$Company.Location, that didn't work either
+sort(dark80$Cocoa.Pct, decreasing=T) 
+
+```
+
