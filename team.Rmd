@@ -4,6 +4,8 @@ author: "Audrey Comer"
 date: "2/5/2019"
 output: html_document
 ---
+##Audrey Comer and Allegra Frickel
+Link to github repo: https://github.com/audreycomer/ds202_lab2
 
 ```{r}
 choco <- read.csv("https://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
