@@ -39,7 +39,10 @@ barplot(head(c2,3), ylab='Number of Ratings', main='Total Number of Ratings for 
 ?barplot
 ```
 
+Above is a bar chart showing how many ratings each of the top three countries have. 
+
 #Histograms of rating distribution in each of the top three countries
+Below are histograms of USA, France, and Canada, to visualize the distributions of each; and a box plot of all three countries. The boxplot shows that the averages are all virtually the same, but France's chocolates are more closely concentrated to its average than USA's and Canada's. There are outliers with USA and France but not with Canada.
 ```{r}
 usa <- choco[choco$Company.Location == "U.S.A.",]
 fr <- choco[choco$Company.Location == "France",]
@@ -47,9 +50,8 @@ can <- choco[choco$Company.Location == "Canada",]
 hist(usa$Rating, breaks=seq(1,5,by=0.25), ylim=c(0,200), col='blue', xlab='Rating', main='Ratings of American chocolate')
 hist(fr$Rating, breaks=seq(1,5,by=0.25), ylim=c(0,40), col='yellow', xlab='Rating', main='Ratings of French chocolate')
 hist(can$Rating, breaks=seq(1,5,by=0.25), ylim=c(0,30), col='red', xlab='Rating', main='Ratings of Canadian chocolate')
-?hist
-?boxplot
-boxplot(usa$Rating,fr$Rating,can$Rating)
+boxlab<-c('USA','France','Canada')
+boxplot(usa$Rating,fr$Rating,can$Rating,ylab='Rating', names=boxlab,main='Boxplot of Ratings for USA, France, and Canada chocolates')
 ```
 
 
