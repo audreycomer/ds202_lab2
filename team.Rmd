@@ -46,6 +46,8 @@ hist(usa$Rating, breaks=seq(1,5,by=0.25), ylim=c(0,200), col='blue', xlab='Ratin
 hist(fr$Rating, breaks=seq(1,5,by=0.25), ylim=c(0,40), col='yellow', xlab='Rating', main='Ratings of French chocolate')
 hist(can$Rating, breaks=seq(1,5,by=0.25), ylim=c(0,30), col='red', xlab='Rating', main='Ratings of Canadian chocolate')
 ?hist
+?boxplot
+boxplot(usa$Rating,fr$Rating,can$Rating)
 ```
 
 
@@ -55,9 +57,13 @@ What countries produce the darkest chocolate out of this data set?
 
 ##5. Answer the question from the dataset.
 ```{r}
-dark80<-choco[choco$Cocoa.Pct>80,]
-names(dark80) <- dark80$Company.Location #this is wrong, I also tried choco$Company.Location, that didn't work either
-sort(dark80$Cocoa.Pct, decreasing=T) 
-
+dark<-choco[choco$Cocoa.Pct>80,]
+dark80<-dark$Cocoa.Pct
+dark80
+names(dark80) <- dark$Company.Location 
+a<-names(dark80)
+sort(dark80, decreasing=T) 
 ```
 
+##Workflow
+The workflow was relatively simple once you try it once or twice. However, it makes it much simpler when you communicate with your partner or collaborator about who is working on what and when. Overall, this is a really effective way to collaborate on work and share it easily. It’s also nice to see your code and your partner’s code in one document. It’s easy to see how you and your partner think and solve a problem.
